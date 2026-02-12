@@ -1,87 +1,63 @@
-// Get the speech synthesis instance
 const synth = window.speechSynthesis;
-let profile = document.querySelector('.profile')
-let pic = document.getElementsByClassName('pic')
-// This will store the voices
-// < div class="pic" >
-//     <p id="name">name</p>
-//     <p id="country">cou</p>
-//     <p id="lang">lang</p>
-//     <span class="dot"></span>
-//   </div >
+let profile = document.querySelector(".profile");
 let voices = [];
 
-
-
-// Function to load voices
+// Load voices
 function loadVoices() {
-    voices = synth.getVoices();
+  voices = synth.getVoices();
+  profile.innerHTML = ""; // clear duplicates
 
-    voices.forEach((e) => {
-        let name = e.name.split(' ')[1]
-        let lang = e.name.split(' ')[5]
-        let country = e.name.split(' ').splice(6)
+  voices.forEach((voice, index) => {
+    let div = document.createElement("div");
+    div.classList.add("pic");
 
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    let span = document.createElement("span");
+    span.classList.add("dot");
 
-        let div = document.createElement('div')
-        div.classList.add('pic')
-        let p1 = document.createElement('p')
-        let p2 = document.createElement('p')
-        let p3 = document.createElement('p')
-        let span = document.createElement('span')
-        span.classList.add('dot')
+    p1.textContent = `Name: ${voice.name}`;
+    p2.textContent = `Language: ${voice.lang}`;
+    p3.textContent = `Default: ${voice.default}`;
 
-        p1.textContent = `${name}`
-        p3.textContent = `${country}`
-        p3.textContent = `${lang}`
+    // click to select voice
+    div.onclick = () => {
+      document.querySelectorAll(".pic").forEach((el) => {
+        el.classList.remove("active");
+        el.children[3].innerText = "";
+      });
+      selectedVoice = voice;
+      div.classList.add("active");
+      div.children[3].innerText = "✓";
+    };
 
-
-        div.append(p1, p2, p3, span)
-
-
-        profile.appendChild(div)
-
-
-
-
-    })
-
-
-
-
-
-
-
-
-
+    div.append(p1, p2, p3, span);
+    profile.appendChild(div);
+  });
 }
 
-// Some browsers load voices asynchronously
 if (typeof speechSynthesis !== "undefined") {
-    // Event fires when voices are loaded
-    speechSynthesis.onvoiceschanged = loadVoices;
+  speechSynthesis.onvoiceschanged = loadVoices;
 }
 
-// Call once in case voices are already loaded
 loadVoices();
 
-
+let selectedVoice = null;
 
 function convert() {
+  const textInput = document.getElementById("text").value.trim();
 
-    const utterThis = new SpeechSynthesisUtterance(text.value);
-    let name = list.options[list.selectedIndex].text
-    for (const voice of voices) {
-        if (voice.name === name) {
-            utterThis.voice = voice;
-            utterThis.voice = voice
-        }
-    }
-    synth.speak(utterThis)
+  if (!textInput) {
+    alert("Enter some text first");
+    return;
+  }
 
+  const utterThis = new SpeechSynthesisUtterance(textInput);
 
+  if (selectedVoice) {
+    utterThis.voice = selectedVoice;
+  }
 
-
-
-
+  synth.speak(utterThis);
 }

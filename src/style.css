@@ -1,49 +1,279 @@
-* {
+*,
+*:after,
+*:before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  height: 100vh;
   background-color: rgb(3, 3, 45);
   color: white;
-  width: 100vw;
-  height: 100vh;
-}
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  
+  
+  
+  
+  
 
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 2.5rem;
 }
-
-.profile {
-  width: 50%;
-  height: auto;
-  background-color: white;
-  border: 2px solid white;
+header {
+  height: 10vh;
+  overflow: hidden;
+  background-color: red;
   display: flex;
-  color: black;
-  gap: 10px;
-  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+header h1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1rem;
+  background-color: rgb(3, 3, 45);
+  font-size: 4rem;
+  text-transform: capitalize;
+  mix-blend-mode: multiply;
+}
+main {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+main .content {
+  height: 30rem;
+  background: rgba(255, 255, 255, 0.199);
+  min-width: 15rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-grow: 1;
+
+  flex-shrink: 1;
+  flex-direction: column;
+  gap: 1rem;
+}
+.content textarea {
+  flex-shrink: 1;
+  resize: none;
+  overflow: hidden;
+  height: fit-content;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  font-size: 2rem;
+  outline: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.content textarea::-webkit-scrollbar {
+  display: none;
+}
+.content #controls {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.content #controls label {
+  font-size: clamp(1.2rem, 1.3rem + 2vw, 1.5rem);
+}
+.content #controls input {
+  padding: 1rem;
+  accent-color: red;
+  outline: none;
+}
+.content #controls input:active {
+  accent-color: green;
+}
+.content #buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
+  
+}
+#buttons button {
+  width: 8rem;
+  flex-basis: 8rem;
+  flex-grow: 1;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 650;
+  border: none;
+  background: #833ab4;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 44%,
+    rgba(252, 176, 69, 1) 95%
+  );
+  color: white;
+  transition: .5s;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#buttons button:active{
+  scale: .95;
+}
+.profile {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.199);
+  border-radius: 0.5rem;
+  color: black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: 20rem;
+  flex-shrink: 1;
+  gap: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 1rem;
+  mask-image: linear-gradient(
+    0deg,
+    transparent 1%,
+    green 5%,
+    red 95%,
+    transparent 100%
+  );
+}
+.profile .pic {
+  user-select: none;
+  cursor: pointer;
+  width: 15rem;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: .5s;
+}
+
+.profile .pic p {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  border-left: 0.199rem solid black;
+  border-radius: 0.5rem;
+  
+}
+.pic .dot {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(44, 41, 38, 1);
+  border: 0.2rem solid ;
+  border-radius: 100%;
+  transition: .5s;
+  color: white;
+  font-size: 1.5rem;
 }
 
 .pic {
-  width: 100px;
-  height: 100px;
-  border: 2px solid red;
+  
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: .5s;
+}
+
+
+/* The color change class */
+.pic.active {
+  
+  background-image: linear-gradient(150deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  border-color: #32bacf;
+}
+
+.pic.active .dot{
+  
+  background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+  color: white;
+  
+  border: orange;
+  font-size: 1.5rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-.dot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  right: 0;
-  border-radius: 100px;
-  border: 1px solid black;
+
+@media screen and (max-width: 800px) {
+  main .content {
+    height: auto;
+  }
+  header h1{
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  .profile {
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    height: auto;
+    mask-image: linear-gradient(
+      90deg,
+      transparent 1%,
+      green 5%,
+      red 95%,
+      transparent 100%
+    );
+  }
+  .profile .pic {
+    scroll-margin-left: 1rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-width: 15rem;
+  }
+}
+
+@media screen and (max-width: 368px){
+  main{
+    height: 94vh;
+  }
+  .profile{
+    
+    padding-top: 0;
+    align-items: center;
+  }
+  header{
+    height: 6vh;
+  }
+  .profile .pic{
+    scale: .85;
+  }
+  header h1{
+    font-size: 2rem;
+  }
 }
