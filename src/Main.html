@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VoiceLabs</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <header>
+      <div id="logo">
+       <span><i class="fa-brands fa-teamspeak"></i></span>
       <h1 id="apptext">
         Voicelab
       </h1>
+      </div>
+      <nav>
+          <span onclick="navigate(1)" class="spannavClick"><a href="#"><i class="fa-solid fa-microphone-lines"></i></a></span>
+          <span onclick="navigate(2)"><a href="#"><i class="fa-solid fa-download"></i></a></span>
+      </nav>
     </header>
     <main>
+      <section id="create" class="section">
       <div class="content">
-        <textarea name="text" id="text" placeholder="Write your text Here"></textarea>
+        <textarea name="text" rows="5" id="text" placeholder="Write your text Here"></textarea>
         <div id="controls">
           <label for="pitch">PITCH:</label>
           <input type="range" min="0" max="10" name="pitch" id="pitch"/>
@@ -28,7 +37,35 @@
       </div>
 
       <div class="profile"></div>
-    </main>
+    </section>
+    <section id="downloads" class="section">
+      <h2>Dowload History</h2>
+      <div id="audios">
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+        <audio controls src="coolie_ringtone.mp3"></audio>
+      </div>
+    </section>
+  </main>
+    
   </body>
   <script src="script.js"></script>
 </html>
