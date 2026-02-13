@@ -1,5 +1,21 @@
 const synth = window.speechSynthesis;
 let profile = document.querySelector(".profile");
+const pitch = document.querySelector("#pitch");
+const rate = document.querySelector("#speed");
+let PITCH = parseInt(pitch.value)
+let RATE = parseInt(rate.value)
+console.log(PITCH,RATE);
+pitch.addEventListener("change", () => {
+  PITCH = pitch.value
+  console.log(PITCH);
+
+})
+rate.addEventListener("change", () => {
+  RATE = rate.value
+  console.log(RATE);
+
+})
+
 let voices = [];
 
 // Load voices
@@ -55,9 +71,19 @@ function convert() {
 
   const utterThis = new SpeechSynthesisUtterance(textInput);
 
+
   if (selectedVoice) {
+
+
     utterThis.voice = selectedVoice;
   }
+  utterThis.pitch = parseInt(PITCH)
+  utterThis.rate = parseInt(RATE)
 
   synth.speak(utterThis);
 }
+
+synth.addEventListener("voiceschanged", () => {
+  console.log('i run');
+  loadVoices()
+});
