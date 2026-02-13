@@ -11,153 +11,38 @@ body {
   background-color: rgb(3, 3, 45);
   color: white;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  
+  
+  
+  
+  
+
 }
 header {
   height: 10vh;
   overflow: hidden;
+  background-color: red;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
   background-size: 100%;
   background-repeat: no-repeat;
-  position: relative;
-  border-bottom: 0.15rem solid rgb(34, 34, 68);
-}
-header #logo {
-  display: flex;
-}
-#logo span {
-  font-size: 3rem;
 }
 
 header h1 {
-  padding-inline: 1rem;
-  background-image: linear-gradient(
-    to top,
-    #3f51b1 0%,
-    #5a55ae 13%,
-    #7b5fac 25%,
-    #8f6aae 38%,
-    #a86aa4 50%,
-    #cc6b8e 62%,
-    #f18271 75%,
-    #f3a469 87%,
-    #f7c978 100%
-  );
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  background-blend-mode: multiply;
-  background-clip: text;
-  color: transparent;
-}
-header nav {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 1rem;
-  padding-inline: 1rem;
-}
-header nav span {
-  width: 5rem;
-  font-size: 1.5rem;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-  padding: 0.5rem;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow:
-    rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-    rgba(0, 0, 0, 0.06) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  transition: 0.5s;
-  scale: 0.95;
-  border-radius: 4rem;
+  letter-spacing: 1rem;
+  background-color: rgb(3, 3, 45);
+  font-size: 4rem;
+  text-transform: capitalize;
+  mix-blend-mode: multiply;
 }
-header nav span a {
-  text-decoration: none;
-  color: white;
-}
-header nav span:active {
-  scale: 0.95;
-}
-.spannavClick {
-  scale: 1;
-  background-image: linear-gradient(
-    156deg,
-    #3f51b1 0%,
-    #5a55ae 13%,
-    #7b5fac 25%,
-    #8f6aae 38%,
-    #a86aa4 50%,
-    #cc6b8e 62%,
-    #f18271 75%,
-    #f3a469 87%,
-    #f7c978 100%
-  );
-  transition: 0.5s;
-
-  color: black;
-}
-main{
-  height: 90vh;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-#downloads{
-  display: flex;
-  flex-direction: column;
-
-  height: 90vh;
-  gap: 1rem;
-  align-items: center;
-  
-}
-#downloads h2{
- background: #09203f;
- height: 4rem;
- display: flex;
- justify-content: center;
- align-items: center;
- font-family: monospace;
- padding: 1rem;
- border-bottom-left-radius: 2rem;
- border-bottom-right-radius: 2rem;
-}
-#downloads #audios{
-  height: 80vh;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-  scroll-snap-type: y  mandatory;
-  
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-evenly;
-  mask-image: linear-gradient(
-    0deg,
-    transparent 1%,
-    green 5%,
-    red 95%,
-    transparent 100%
-  );
-  scroll-padding: 1rem;
-}
-#downloads #audios audio{
-  height: 5rem;
-  scroll-snap-align: start;
-  
-}
-#create {
+main {
   height: 90vh;
   display: flex;
   flex-direction: row;
@@ -168,8 +53,8 @@ main{
   overflow: hidden;
 }
 
-#create .content {
-  height: auto;
+main .content {
+  height: 30rem;
   background: rgba(255, 255, 255, 0.199);
   min-width: 15rem;
   padding: 1rem;
@@ -180,7 +65,6 @@ main{
   flex-shrink: 1;
   flex-direction: column;
   gap: 1rem;
-  position: relative;
 }
 .content textarea {
   flex-shrink: 1;
@@ -189,23 +73,18 @@ main{
   height: fit-content;
   border-radius: 0.8rem;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   outline: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .content textarea::-webkit-scrollbar {
   display: none;
 }
-
 .content #controls {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
-
-#setings {
-  display: none;
-}
-
 .content #controls label {
   font-size: clamp(1.2rem, 1.3rem + 2vw, 1.5rem);
 }
@@ -217,26 +96,19 @@ main{
 .content #controls input:active {
   accent-color: green;
 }
-#controls #control-wraper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 1rem;
-  height: auto;
-}
 .content #buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-evenly;
+  
 }
-
 #buttons button {
   width: 8rem;
   flex-basis: 8rem;
   flex-grow: 1;
-  height: 3rem;
+  height: 3.5rem;
   border-radius: 0.5rem;
   font-size: 1.3rem;
   font-weight: 650;
@@ -249,18 +121,14 @@ main{
     rgba(252, 176, 69, 1) 95%
   );
   color: white;
-  transition: 0.5s;
-  box-shadow:
-    rgba(0, 0, 0, 0.19) 0px 10px 20px,
-    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: .5s;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-#buttons button:active {
-  scale: 0.95;
+#buttons button:active{
+  scale: .95;
 }
-
 .profile {
   height: 100%;
-  
   background: rgba(255, 255, 255, 0.199);
   border-radius: 0.5rem;
   color: black;
@@ -286,9 +154,6 @@ main{
     transparent 100%
   );
 }
-.profile::-webkit-scrollbar {
-  display: none;
-}
 .profile .pic {
   user-select: none;
   cursor: pointer;
@@ -307,7 +172,7 @@ main{
   box-shadow:
     rgba(0, 0, 0, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .profile .pic p {
@@ -316,6 +181,7 @@ main{
   background: white;
   border-left: 0.199rem solid black;
   border-radius: 0.5rem;
+  
 }
 .pic .dot {
   position: absolute;
@@ -327,40 +193,33 @@ main{
   justify-content: center;
   align-items: center;
   background: rgba(44, 41, 38, 1);
-  border: 0.2rem solid;
+  border: 0.2rem solid ;
   border-radius: 100%;
-  transition: 0.5s;
+  transition: .5s;
   color: white;
   font-size: 1.5rem;
 }
 
 .pic {
+  
   cursor: pointer;
   transition: background-color 0.3s;
-  transition: 0.5s;
+  transition: .5s;
 }
+
 
 /* The color change class */
 .pic.active {
-  background-image: linear-gradient(
-    150deg,
-    #3f51b1 0%,
-    #5a55ae 13%,
-    #7b5fac 25%,
-    #8f6aae 38%,
-    #a86aa4 50%,
-    #cc6b8e 62%,
-    #f18271 75%,
-    #f3a469 87%,
-    #f7c978 100%
-  );
+  
+  background-image: linear-gradient(150deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
   border-color: #32bacf;
 }
 
-.pic.active .dot {
+.pic.active .dot{
+  
   background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
   color: white;
-
+  
   border: orange;
   font-size: 1.5rem;
   display: flex;
@@ -368,82 +227,21 @@ main{
   align-items: center;
 }
 
-@media screen and (max-width: 675px) {
-  #controls {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0%;
-    height: 0%;
-    border-radius: inherit;
-    padding: 1rem;
-    transform: 0.5s;
-  }
-
-  #controls.showSetings {
-    transition: 0.5s;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-  }
-
-  #setings {
-    z-index: 1;
-    display: block;
-    height: 3rem;
-    width: 3rem;
-    align-self: flex-end;
-    background: linear-gradient(
-      90deg,
-      rgba(131, 58, 180, 1) 0%,
-      rgba(253, 29, 29, 1) 44%,
-      rgba(252, 176, 69, 1) 95%
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    box-shadow:
-      rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    transition: 0.5s;
-  }
-  #setings:active {
-    scale: 0.95;
-  }
-  #controls #control-wraper {
-    display: none;
-  }
-  #controls.showSetings #control-wraper {
-    overflow: hidden;
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    gap: 1rem;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 1);
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-
-  #create .content {
+@media screen and (max-width: 800px) {
+  main .content {
     height: auto;
   }
-
+  header h1{
+    font-size: 3.5rem;
+    text-align: center;
+  }
   .profile {
-    height: auto;
     flex-wrap: nowrap;
     overflow-y: hidden;
     overflow-x: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-
+    height: auto;
     mask-image: linear-gradient(
       90deg,
       transparent 1%,
@@ -451,62 +249,31 @@ main{
       red 95%,
       transparent 100%
     );
-    height: auto;
   }
   .profile .pic {
     scroll-margin-left: 1rem;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     min-width: 15rem;
-    height: 15rem;
   }
 }
 
-@media screen and (max-width: 368px) {
-  #create {
-    height: 90vh;
+@media screen and (max-width: 368px){
+  main{
+    height: 94vh;
   }
-  .profile {
-    padding-top: 1rem;
+  .profile{
+    
+    padding-top: 0;
     align-items: center;
-    height: 15rem;
-    align-items: center;
   }
-  header {
-    height: 10vh;
+  header{
+    height: 6vh;
   }
-  .profile .pic {
-    scale: 0.85;
+  .profile .pic{
+    scale: .85;
   }
-}
-@media screen and (max-width: 576px) {
-  header div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  header div h1 {
-    font-size: 3rem;
-  }
-  nav {
-    position: fixed;
-    bottom: 2rem;
-    border-radius: 4rem;
-
-    background-image: linear-gradient(to right, rgba(3, 3, 45) 0%);
-    background-image: linear-gradient(189deg, #f43b47 0%, #453a94 100%);
-    z-index: 1;
-    height: 4.5rem;
-    width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-evenly;
-    border: rgb(3, 3, 45);
-  }
-  nav span {
-    width: 50%;
-    border-radius: 0;
+  header h1{
+    font-size: 2rem;
   }
 }
