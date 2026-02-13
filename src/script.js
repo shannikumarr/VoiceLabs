@@ -1,3 +1,52 @@
+const pitchInput = document.getElementById("pitch");
+const rateInput = document.getElementById("speed");
+const volumeInput = document.getElementById("volume");
+
+const pitchlabel = document.getElementById("pitchlabel");
+const ratelabel = document.getElementById("ratelabel");
+const volumelabel = document.getElementById("volumelabel");
+
+const constrols = document.getElementById("controls");
+const setingsBtn = document.getElementById("setings");
+
+const navItems = document.querySelectorAll("nav>span");
+
+
+navItems.forEach(item => {
+  item.addEventListener('click', function() {
+    
+    navItems.forEach(nav => nav.classList.remove('spannavClick'));
+    
+    this.classList.toggle('spannavClick');
+  });
+});
+console.log(setingsBtn);
+console.log(constrols)
+setingsBtn.onclick = function(){
+  constrols.classList.toggle("showSetings");
+  if(!constrols.classList.contains('showSetings')){
+    setingsBtn.innerHTML = `&#9778;`;
+  }else{
+    setingsBtn.innerHTML = `&#10006;`;
+  }
+}
+pitchlabel.innerText = `PITCH: ${pitchInput.value}`;
+ratelabel.innerText = `SPEED: ${rateInput.value}`;
+volumelabel.innerText = `VOLUME: ${volumeInput.value}`;
+
+pitchInput.addEventListener("input", () => {
+  pitchlabel.innerText = `PITCH: ${pitchInput.value}`;
+  
+});
+
+rateInput.addEventListener("input",()=>{
+  ratelabel.innerText = `SPEED: ${rateInput.value}`;
+});
+
+volumeInput.addEventListener("input",()=>{
+  volumelabel.innerText = `VOLUME: ${volumeInput.value}`
+});
+
 const synth = window.speechSynthesis;
 let profile = document.querySelector(".profile");
 let voices = [];
@@ -27,6 +76,7 @@ function loadVoices() {
         el.classList.remove("active");
         el.children[3].innerText = "";
       });
+
       selectedVoice = voice;
       div.classList.add("active");
       div.children[3].innerText = "✓";
@@ -55,9 +105,34 @@ function convert() {
 
   const utterThis = new SpeechSynthesisUtterance(textInput);
 
-  if (selectedVoice) {
-    utterThis.voice = selectedVoice;
-  }
+  // ✅ FIX: always ensure a voice exists
+  utterThis.voice = selectedVoice || synth.getVoices()[0];
 
+  // ✅ FIX: prevent speech queue getting stuck
+  synth.cancel();
   synth.speak(utterThis);
 }
+
+let navigateNumber = 1;
+
+function navigate(n) {
+  navigateNumber = n;
+  showSection(n);
+}
+
+function showSection(n) {
+  const sections = document.getElementsByClassName("section");
+  
+  
+  for (let i = 0; i < sections.length; i++) { 
+    sections[i].style.display = 'none';
+  }
+   
+  if (sections[n - 1]) {
+    sections[n - 1].style.display = "flex";
+  }
+  console.log(sections[0]);
+}
+
+showSection(navigateNumber);
+
