@@ -53,6 +53,7 @@ header h1 {
 header nav {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
   padding-inline: 1rem;
@@ -61,8 +62,8 @@ header nav span {
   width: 5rem;
   font-size: 1.5rem;
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-  padding: 0.5rem;
-  height: 100%;
+  padding: 1rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,44 +105,44 @@ header nav span:active {
 
   color: black;
 }
-main{
+main {
   height: 90vh;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
-#downloads{
+#downloads {
   display: flex;
   flex-direction: column;
 
   height: 90vh;
+  width: 100%;
   gap: 1rem;
   align-items: center;
-  
 }
-#downloads h2{
- background: #09203f;
- height: 4rem;
- display: flex;
- justify-content: center;
- align-items: center;
- font-family: monospace;
- padding: 1rem;
- border-bottom-left-radius: 2rem;
- border-bottom-right-radius: 2rem;
+#downloads h2 {
+  background: #09203f;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  padding: 1rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
-#downloads #audios{
+#downloads #audios {
   height: 80vh;
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;
-  scroll-snap-type: y  mandatory;
-  
+  scroll-snap-type: y mandatory;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  flex-shrink: 0;
   justify-content: space-evenly;
   mask-image: linear-gradient(
     0deg,
@@ -152,10 +153,13 @@ main{
   );
   scroll-padding: 1rem;
 }
-#downloads #audios audio{
+#downloads #audios audio {
   height: 5rem;
   scroll-snap-align: start;
-  
+  min-width: 15rem;
+  flex-shrink: 1;
+  flex-grow: 0;
+  max-width: 20rem;
 }
 #create {
   height: 90vh;
@@ -202,7 +206,7 @@ main{
   flex-direction: column;
 }
 
-#setings {
+#settings {
   display: none;
 }
 
@@ -260,7 +264,7 @@ main{
 
 .profile {
   height: 100%;
-  
+
   background: rgba(255, 255, 255, 0.199);
   border-radius: 0.5rem;
   color: black;
@@ -380,14 +384,14 @@ main{
     transform: 0.5s;
   }
 
-  #controls.showSetings {
+  #controls.showsettings {
     transition: 0.5s;
     width: 100%;
     height: 100%;
     padding: 1rem;
   }
 
-  #setings {
+  #settings {
     z-index: 1;
     display: block;
     height: 3rem;
@@ -411,13 +415,13 @@ main{
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
     transition: 0.5s;
   }
-  #setings:active {
+  #settings:active {
     scale: 0.95;
   }
   #controls #control-wraper {
     display: none;
   }
-  #controls.showSetings #control-wraper {
+  #controls.showsettings #control-wraper {
     overflow: hidden;
     position: absolute;
     display: flex;
@@ -490,11 +494,10 @@ main{
     font-size: 3rem;
   }
   nav {
+
     position: fixed;
     bottom: 2rem;
     border-radius: 4rem;
-
-    background-image: linear-gradient(to right, rgba(3, 3, 45) 0%);
     background-image: linear-gradient(189deg, #f43b47 0%, #453a94 100%);
     z-index: 1;
     height: 4.5rem;
@@ -504,9 +507,7 @@ main{
     display: flex;
     justify-content: space-evenly;
     border: rgb(3, 3, 45);
+
   }
-  nav span {
-    width: 50%;
-    border-radius: 0;
-  }
+  
 }
