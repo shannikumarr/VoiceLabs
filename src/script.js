@@ -45,6 +45,22 @@ volumeInput.addEventListener("input", () => {
 
 const synth = window.speechSynthesis;
 let profile = document.querySelector(".profile");
+const pitch = document.querySelector("#pitch");
+const rate = document.querySelector("#speed");
+let PITCH = parseInt(pitch.value)
+let RATE = parseInt(rate.value)
+console.log(PITCH,RATE);
+pitch.addEventListener("change", () => {
+  PITCH = pitch.value
+  console.log(PITCH);
+
+})
+rate.addEventListener("change", () => {
+  RATE = rate.value
+  console.log(RATE);
+
+})
+
 let voices = [];
 
 // Load voices
@@ -101,40 +117,21 @@ function convert() {
 
   const utterThis = new SpeechSynthesisUtterance(textInput);
 
-  // ✅ FIX: always ensure a voice exists
-  utterThis.voice = selectedVoice;
 
-  utterThis.volume = volumeInput.value;
-  utterThis.pitch = pitchInput.value;
-  utterThis.rate = rateInput.value;
+  if (selectedVoice) {
+
+
+    utterThis.voice = selectedVoice;
+  }
+  utterThis.pitch = parseInt(PITCH)
+  utterThis.rate = parseInt(RATE)
+
   // ✅ FIX: prevent speech queue getting stuck
   synth.cancel();
   synth.speak(utterThis);
 }
 
-let navigateNumber = 1;
-
-function navigate(n) {
-  navigateNumber = n;
-  showSection(n);
-}
-
-function dowload(){
-  alert("not implemented yet")
-}
-
-function showSection(n) {
-  const sections = document.getElementsByClassName("section");
-
-  for (let i = 0; i < sections.length; i++) {
-    sections[i].style.display = "none";
-  }
-
-  if (sections[n - 1]) {
-    sections[n - 1].style.display = "flex";
-    sections[n-1].style = "opacity: 1; transition: .5s;"
-  }
-  
-}
-
-showSection(navigateNumber);
+synth.addEventListener("voiceschanged", () => {
+  console.log('i run');
+  loadVoices()
+});

@@ -25,15 +25,10 @@
       <div class="content">
         <textarea name="text" rows="5" id="text" placeholder="Write your text Here"></textarea>
         <div id="controls">
-          <button id="settings">&#9778;</button>
-          <div id="control-wraper">
-          <label for="volume" id="volumelabel">VOLUME:</label>
-          <input type="range" min="0" max="1"  step="0.1" name="volume" id="volume" value="1"/>
-          <label for="pitch" id="pitchlabel">PITCH:</label>
-          <input type="range" min="0" max="2"  step="0.1" name="pitch" id="pitch" value="1"/>
-          <label for="speed" id="ratelabel">SPEED:</label>
-          <input type="range" name="speed" min="0.1" max="10" step="0.1" id="speed" value="1"/>
-          </div>
+          <label for="pitch">PITCH:</label>
+          <input type="range" min="0" max="10" name="pitch" id="pitch"/>
+          <label for="speed" min="0" max="10">SPEED:</label>
+          <input type="range" min="0" max="5" name="pitch" id="speed"/>
         </div>
         <div id="buttons">
           <button onclick="convert()">Convert</button>
