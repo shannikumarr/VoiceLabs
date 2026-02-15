@@ -119,7 +119,9 @@ function navigate(n) {
   showSection(n);
 }
 
-
+function dowload(){
+  alert("not implemented yet")
+}
 
 function showSection(n) {
   const sections = document.getElementsByClassName("section");
@@ -130,6 +132,7 @@ function showSection(n) {
 
   if (sections[n - 1]) {
     sections[n - 1].style.display = "flex";
+    sections[n-1].style = "opacity: 1; transition: .5s;"
   }
   
 }
